@@ -25,26 +25,6 @@ class UpdateData(BaseEstimator, TransformerMixin):
         # Primeiro realizamos a cópia do dataframe 'X' de entrada
         data = X.copy()
         data.loc[
-            (data["PERFIL"] == "DIFICULDADE") 
-            & (((data["REPROVACOES_DE"] == 0) | (data["REPROVACOES_DE"].empty)))
-            , "REPROVACOES_DE"
-        ] = 1
-        data.loc[
-            (data["PERFIL"] == "DIFICULDADE")
-            & (((data["REPROVACOES_EM"] == 0) | (data["REPROVACOES_EM"].empty)))
-            , "REPROVACOES_EM"
-        ] = 1
-        data.loc[
-            (data["PERFIL"] == "DIFICULDADE") 
-            & (((data["REPROVACOES_MF"] == 0) | (data["REPROVACOES_MF"].empty)))
-            , "REPROVACOES_MF"
-        ] = 1
-        data.loc[
-            (data["PERFIL"] == "DIFICULDADE") 
-            & (((data["REPROVACOES_GO"] == 0) | (data["REPROVACOES_GO"].empty)))
-            , "REPROVACOES_GO"
-        ] = 1
-        data.loc[
             (data["PERFIL"] == "EXATAS") 
             & (((data["REPROVACOES_MF"] == 0) | (data["REPROVACOES_MF"].empty)) & ((data["NOTA_MF"] < mean_for_ok) | (data["NOTA_MF"].empty))) 
             , "REPROVACOES_MF"
