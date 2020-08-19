@@ -27,6 +27,7 @@ class UpdateData(BaseEstimator, TransformerMixin):
         mean_for_ok = 7.0
         # Primeiro realizamos a cópia do dataframe 'X' de entrada
         print(self)
+        print(X)
         data = X.copy()
         data.loc[(data["PERFIL"] == "DIFICULDADE") & (data["REPROVACOES_DE"] == 0), "REPROVACOES_DE"] = 1
         data.loc[(data["PERFIL"] == "DIFICULDADE") & (data["REPROVACOES_EM"] == 0), "REPROVACOES_EM"] = 1
