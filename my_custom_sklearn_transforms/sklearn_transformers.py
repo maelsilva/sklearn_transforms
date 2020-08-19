@@ -46,7 +46,7 @@ class UpdateData(BaseEstimator, TransformerMixin):
         ] = 1
         data.loc[
             (data["PERFIL"] == "EXATAS") 
-            & ((data["REPROVACOES_MF"] == 0 | data["REPROVACOES_MF"].empty) & (data["NOTA_MF"] < mean_for_ok | data["NOTA_MF"].empty)) 
+            & (((data["REPROVACOES_MF"] == 0) | (data["REPROVACOES_MF"].empty)) & ((data["NOTA_MF"] < mean_for_ok) | (data["NOTA_MF"].empty))) 
             , "REPROVACOES_MF"
         ] = 1
         data.loc[
