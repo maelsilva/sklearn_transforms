@@ -26,33 +26,33 @@ class UpdateData(BaseEstimator, TransformerMixin):
         # Primeiro realizamos a cópia do dataframe 'X' de entrada
         data = X.copy()
         for i in range(len(data["PERFIL"])):
-            if (data["PERFIL"][i] == "DIFICULDADE")
-                if (data["REPROVACOES_DE"][i] == 0)
+            if (data["PERFIL"][i] == "DIFICULDADE"):
+                if (data["REPROVACOES_DE"][i] == 0):
                     data["REPROVACOES_DE"][i] = 1
-                if (data["REPROVACOES_EM"][i] == 0)
+                if (data["REPROVACOES_EM"][i] == 0):
                     data["REPROVACOES_EM"][i] = 1
-                if (data["REPROVACOES_MF"][i] == 0)
+                if (data["REPROVACOES_MF"][i] == 0):
                     data["REPROVACOES_MF"][i] = 1
-                if (data["REPROVACOES_GO"][i] == 0)
+                if (data["REPROVACOES_GO"][i] == 0):
                     data["REPROVACOES_GO"][i] = 1
-            if (data["PERFIL"][i] == "EXATAS")
-                if (data["REPROVACOES_MF"][i] == 0 & data["NOTA_MF"][i] < mean_for_ok)
+            if (data["PERFIL"][i] == "EXATAS"):
+                if (data["REPROVACOES_MF"][i] == 0 & data["NOTA_MF"][i] < mean_for_ok):
                     data["REPROVACOES_MF"][i] = 1
-                if (data["REPROVACOES_EM"][i] == 0 & data["NOTA_EM"][i] < mean_for_ok)
+                if (data["REPROVACOES_EM"][i] == 0 & data["NOTA_EM"][i] < mean_for_ok):
                     data["REPROVACOES_EM"][i] = 1
-            if (data["PERFIL"][i] == "HUMANAS")
-                if (data["REPROVACOES_DE"][i] == 0 & data["NOTA_DE"][i] < mean_for_ok)
+            if (data["PERFIL"][i] == "HUMANAS"):
+                if (data["REPROVACOES_DE"][i] == 0 & data["NOTA_DE"][i] < mean_for_ok):
                     data["REPROVACOES_DE"][i] = 1
-                if (data["REPROVACOES_GO"][i] == 0 & data["NOTA_GO"][i] < mean_for_ok)
+                if (data["REPROVACOES_GO"][i] == 0 & data["NOTA_GO"][i] < mean_for_ok):
                     data["REPROVACOES_GO"][i] = 1
-            if (data["PERFIL"][i] == "EXCELENTE")
-                if (data["NOTA_DE"][i] == 0)
+            if (data["PERFIL"][i] == "EXCELENTE"):
+                if (data["NOTA_DE"][i] == 0):
                     data["NOTA_DE"][i] == 10
-                if (data["NOTA_EM"][i] == 0)
+                if (data["NOTA_EM"][i] == 0):
                     data["NOTA_EM"][i] == 10
-                if (data["NOTA_MF"][i] == 0)
+                if (data["NOTA_MF"][i] == 0):
                     data["NOTA_MF"][i] == 10
-                if (data["NOTA_GO"][i] == 0)
+                if (data["NOTA_GO"][i] == 0):
                     data["NOTA_GO"][i] == 10
         #data.loc[(data["PERFIL"] == "DIFICULDADE") & (data["REPROVACOES_DE"] == 0), "REPROVACOES_DE"] = 1
         #data.loc[(data["PERFIL"] == "DIFICULDADE") & (data["REPROVACOES_EM"] == 0), "REPROVACOES_EM"] = 1
