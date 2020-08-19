@@ -65,22 +65,22 @@ class UpdateData(BaseEstimator, TransformerMixin):
             , "REPROVACOES_GO"
         ] = 1
         data.loc[
-            (df_data_1["PERFIL"] == "EXCELENTE") 
+            (data["PERFIL"] == "EXCELENTE") 
             & (((data["NOTA_DE"] == mean_for_ok) | (data["NOTA_DE"].empty))) 
             , "NOTA_DE"
         ] = 10
         data.loc[
-            (df_data_1["PERFIL"] == "EXCELENTE") 
+            (data["PERFIL"] == "EXCELENTE") 
             & (((data["NOTA_EM"] == mean_for_ok) | (data["NOTA_EM"].empty))) 
             , "NOTA_EM"
         ] = 10
         data.loc[
-            (df_data_1["PERFIL"] == "EXCELENTE") 
+            (data["PERFIL"] == "EXCELENTE") 
             & (((data["NOTA_MF"] == mean_for_ok) | (data["NOTA_MF"].empty))) 
             , "NOTA_MF"
         ] = 10
         data.loc[
-            (df_data_1["PERFIL"] == "EXCELENTE") 
+            (data["PERFIL"] == "EXCELENTE") 
             & (((data["NOTA_GO"] == mean_for_ok) | (data["NOTA_GO"].empty))) 
             , "NOTA_GO"
         ] = 10
