@@ -20,10 +20,10 @@ class UpdateData(BaseEstimator, TransformerMixin):
     def __init__(self, columns):
         self.columns = columns
         
-    def fit(self, X, y):
+    def fit(self, X, y=None):
         return self
     
-    def transform(self, X, y):
+    def transform(self, X):
         mean_for_ok = 7.0
         # Primeiro realizamos a cópia do dataframe 'X' de entrada
         print(self)
