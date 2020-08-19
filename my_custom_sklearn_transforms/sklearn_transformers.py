@@ -25,35 +25,35 @@ class UpdateData(BaseEstimator, TransformerMixin):
         mean_for_ok = 7.0
         # Primeiro realizamos a cópia do dataframe 'X' de entrada
         data = X.copy()
-        for i in range(len(data["PERFIL"])):
-            if (data["PERFIL"][i] == "DIFICULDADE"):
-                if (data["REPROVACOES_DE"][i] == 0):
-                    data["REPROVACOES_DE"][i] = 1
-                if (data["REPROVACOES_EM"][i] == 0):
-                    data["REPROVACOES_EM"][i] = 1
-                if (data["REPROVACOES_MF"][i] == 0):
-                    data["REPROVACOES_MF"][i] = 1
-                if (data["REPROVACOES_GO"][i] == 0):
-                    data["REPROVACOES_GO"][i] = 1
-            if (data["PERFIL"][i] == "EXATAS"):
-                if (data["REPROVACOES_MF"][i] == 0 & data["NOTA_MF"][i] < mean_for_ok):
-                    data["REPROVACOES_MF"][i] = 1
-                if (data["REPROVACOES_EM"][i] == 0 & data["NOTA_EM"][i] < mean_for_ok):
-                    data["REPROVACOES_EM"][i] = 1
-            if (data["PERFIL"][i] == "HUMANAS"):
-                if (data["REPROVACOES_DE"][i] == 0 & data["NOTA_DE"][i] < mean_for_ok):
-                    data["REPROVACOES_DE"][i] = 1
-                if (data["REPROVACOES_GO"][i] == 0 & data["NOTA_GO"][i] < mean_for_ok):
-                    data["REPROVACOES_GO"][i] = 1
-            if (data["PERFIL"][i] == "EXCELENTE"):
-                if (data["NOTA_DE"][i] == 0):
-                    data["NOTA_DE"][i] == 10
-                if (data["NOTA_EM"][i] == 0):
-                    data["NOTA_EM"][i] == 10
-                if (data["NOTA_MF"][i] == 0):
-                    data["NOTA_MF"][i] == 10
-                if (data["NOTA_GO"][i] == 0):
-                    data["NOTA_GO"][i] == 10
+        for i in range(len(data)):
+            if (data[i]["PERFIL"] == "DIFICULDADE"):
+                if (data[i]["REPROVACOES_DE"] == 0):
+                    data[i]["REPROVACOES_DE"] = 1
+                if (data[i]["REPROVACOES_EM"] == 0):
+                    data[i]["REPROVACOES_EM"] = 1
+                if (data[i]["REPROVACOES_MF"] == 0):
+                    data[i]["REPROVACOES_MF"] = 1
+                if (data[i]["REPROVACOES_GO"] == 0):
+                    data[i]["REPROVACOES_GO"] = 1
+            if (data[i]["PERFIL"] == "EXATAS"):
+                if (data[i]["REPROVACOES_MF"] == 0 & data[i]["NOTA_MF"] < mean_for_ok):
+                    data[i]["REPROVACOES_MF"] = 1
+                if (data[i]["REPROVACOES_EM"] == 0 & data[i]["NOTA_EM"] < mean_for_ok):
+                    data[i]["REPROVACOES_EM"] = 1
+            if (data[i]["PERFIL"] == "HUMANAS"):
+                if (data[i]["REPROVACOES_DE"] == 0 & data[i]["NOTA_DE"] < mean_for_ok):
+                    data[i]["REPROVACOES_DE"] = 1
+                if (data[i]["REPROVACOES_GO"] == 0 & data[i]["NOTA_GO"] < mean_for_ok):
+                    data[i]["REPROVACOES_GO"] = 1
+            if (data[i]["PERFIL"] == "EXCELENTE"):
+                if (data[i]["NOTA_DE"] == 0):
+                    data[i]["NOTA_DE"] == 10
+                if (data[i]["NOTA_EM"] == 0):
+                    data[i]["NOTA_EM"] == 10
+                if (data[i]["NOTA_MF"] == 0):
+                    data[i]["NOTA_MF"] == 10
+                if (data[i]["NOTA_GO"] == 0):
+                    data[i]["NOTA_GO"] == 10
         #data.loc[(data["PERFIL"] == "DIFICULDADE") & (data["REPROVACOES_DE"] == 0), "REPROVACOES_DE"] = 1
         #data.loc[(data["PERFIL"] == "DIFICULDADE") & (data["REPROVACOES_EM"] == 0), "REPROVACOES_EM"] = 1
         #data.loc[(data["PERFIL"] == "DIFICULDADE") & (data["REPROVACOES_MF"] == 0), "REPROVACOES_MF"] = 1
