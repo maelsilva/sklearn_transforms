@@ -26,12 +26,22 @@ class UpdateData(BaseEstimator, TransformerMixin):
     def transform(self, X):
         mean_for_ok = 7.0
         # Primeiro realizamos a cópia do dataframe 'X' de entrada
-        print(self)
-        print(X)
         data = X.copy()
-        data.loc[(data["PERFIL"] == "DIFICULDADE") & (data["REPROVACOES_DE"] == 0), "REPROVACOES_DE"] = 1
-        data.loc[(data["PERFIL"] == "DIFICULDADE") & (data["REPROVACOES_EM"] == 0), "REPROVACOES_EM"] = 1
-        data.loc[(data["PERFIL"] == "DIFICULDADE") & (data["REPROVACOES_MF"] == 0), "REPROVACOES_MF"] = 1
+        data.loc[
+            (data["PERFIL"] == "DIFICULDADE") 
+            & ((data["REPROVACOES_DE"] == 0 | data["REPROVACOES_DE"] == np.nan))
+            , "REPROVACOES_DE"
+        ] = 1
+        data.loc[
+            (data["PERFIL"] == "DIFICULDADE")
+            & ((data["REPROVACOES_EM"] == 0 | data["REPROVACOES_EM"] == np.nan))
+            , "REPROVACOES_EM"
+        ] = 1
+        data.loc[
+            (data["PERFIL"] == "DIFICULDADE") 
+            & ((data["REPROVACOES_MF"] == 0 | data["REPROVACOES_MF"] == np.nan))
+            , "REPROVACOES_MF"
+        ] = 1
         data.loc[(data["PERFIL"] == "DIFICULDADE") & (data["REPROVACOES_GO"] == 0), "REPROVACOES_GO"] = 1
         data.loc[(data["PERFIL"] == "EXATAS") & (data["REPROVACOES_MF"] == 0) & (data["NOTA_MF"] < mean_for_ok), "REPROVACOES_MF"] = 1
         data.loc[(data["PERFIL"] == "EXATAS") & (data["REPROVACOES_EM"] == 0) & (data["NOTA_EM"] < mean_for_ok), "REPROVACOES_EM"] = 1
