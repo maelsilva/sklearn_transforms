@@ -24,22 +24,22 @@ class UpdateData(BaseEstimator, TransformerMixin):
         # Primeiro realizamos a cópia do dataframe 'X' de entrada
         data = X.copy()
         data.loc[
-            (data["PERFIL"] == "EXCELENTE") 
+            (data["PERFIL"] == "MUITO_BOM") 
             & (((data["NOTA_DE"] == 0) | (data["NOTA_DE"].empty))) 
             , "NOTA_DE"
         ] = 8
         data.loc[
-            (data["PERFIL"] == "EXCELENTE") 
+            (data["PERFIL"] == "MUITO_BOM") 
             & (((data["NOTA_EM"] == 0) | (data["NOTA_EM"].empty))) 
             , "NOTA_EM"
         ] = 8
         data.loc[
-            (data["PERFIL"] == "EXCELENTE") 
+            (data["PERFIL"] == "MUITO_BOM") 
             & (((data["NOTA_MF"] == 0) | (data["NOTA_MF"].empty))) 
             , "NOTA_MF"
         ] = 8
         data.loc[
-            (data["PERFIL"] == "EXCELENTE") 
+            (data["PERFIL"] == "MUITO_BOM") 
             & (((data["NOTA_GO"] == 0) | (data["NOTA_GO"].empty))) 
             , "NOTA_GO"
         ] = 8
