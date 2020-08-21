@@ -45,6 +45,46 @@ class UpdateData(BaseEstimator, TransformerMixin):
             , "REPROVACOES_GO"
         ] = 1
         data.loc[
+            (data["PERFIL"] == "EXATAS") 
+            & (((data["NOTA_MF"] == 0) | (data["NOTA_MF"].empty))) 
+            , "NOTA_MF"
+        ] = 5
+        data.loc[
+            (data["PERFIL"] == "EXATAS") 
+            & (((data["NOTA_EM"] == 0) | (data["NOTA_EM"].empty))) 
+            , "NOTA_EM"
+        ] = 5
+        data.loc[
+            (data["PERFIL"] == "HUMANAS") 
+            & (((data["NOTA_DE"] == 0) | (data["NOTA_DE"].empty))) 
+            , "NOTA_DE"
+        ] = 5
+        data.loc[
+            (data["PERFIL"] == "HUMANAS") 
+            & (((data["NOTA_GO"] == 0) | (data["NOTA_GO"].empty)))
+            , "NOTA_GO"
+        ] = 5
+        data.loc[
+            (data["PERFIL"] == "EXCELENTE") 
+            & (((data["NOTA_DE"] == 0) | (data["NOTA_DE"].empty))) 
+            , "NOTA_DE"
+        ] = 8
+        data.loc[
+            (data["PERFIL"] == "EXCELENTE") 
+            & (((data["NOTA_EM"] == 0) | (data["NOTA_EM"].empty))) 
+            , "NOTA_EM"
+        ] = 8
+        data.loc[
+            (data["PERFIL"] == "EXCELENTE") 
+            & (((data["NOTA_MF"] == 0) | (data["NOTA_MF"].empty))) 
+            , "NOTA_MF"
+        ] = 8
+        data.loc[
+            (data["PERFIL"] == "EXCELENTE") 
+            & (((data["NOTA_GO"] == 0) | (data["NOTA_GO"].empty))) 
+            , "NOTA_GO"
+        ] = 8
+        data.loc[
             (data["PERFIL"] == "EXCELENTE") 
             & (((data["NOTA_DE"] == 0) | (data["NOTA_DE"].empty))) 
             , "NOTA_DE"
